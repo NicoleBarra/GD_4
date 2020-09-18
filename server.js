@@ -25,6 +25,11 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json());
 
+// Sobreescribe el método de envío
+let methodOverride = require('method-override')
+// sobreescribe el método POST
+app.use(methodOverride('_method'))
+
 // Routes
 app.use('/', webRoutes);
 
