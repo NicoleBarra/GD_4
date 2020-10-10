@@ -1,6 +1,7 @@
 // Imports
 const express = require('express');
 const webRoutes = require('./routes/web');
+var cors = require('cors')
 
 // Express app creation
 const app = express();
@@ -24,6 +25,13 @@ app.use(express.static('public'));
 // Receive parameters from the Form requests
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json());
+
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    credentials: true,
+  })
+);
 
 // Sobreescribe el método de envío
 let methodOverride = require('method-override')

@@ -2,6 +2,7 @@ const Task = require('../models/Task');
 
 exports.store = (req, res) => {
   let task = {};
+  console.log(req);
   task.description = req.body.description;
   Task.create(task).then((id) => {
     console.log('Task created with id: ', id);
@@ -34,6 +35,7 @@ exports.done = (req, res) => {
 }
 
 exports.delete = (req, res) => {
+  console.log(req);
   let task = {};
   taskId = req.body.id;
   task.id = req.body.id;
